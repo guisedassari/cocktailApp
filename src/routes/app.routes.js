@@ -11,7 +11,7 @@ const AppStack = createStackNavigator();
 const AppRoutes = () => {
   const { drinks } = useSelector((state) => state.Drinks);
   let size = 0;
-  if (drinks !== undefined) {
+  if (drinks !== undefined && drinks !== null) {
     size = Object.keys(drinks).length;
   }
 

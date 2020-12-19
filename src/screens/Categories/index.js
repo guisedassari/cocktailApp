@@ -34,7 +34,7 @@ const Categories = ({ navigation }) => {
 
   return (
     <Container>
-      <SearchField />
+      <SearchField navigation={navigation} />
       {categories !== null ? (
         <ScrollView>
           {categories.map((category) => {

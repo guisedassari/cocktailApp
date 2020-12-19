@@ -1,11 +1,21 @@
 import React from 'react';
-import { Text, FlatList } from 'react-native';
+import { FlatList, Text } from 'react-native';
 import { useSelector } from 'react-redux';
 
 import { List, PhotoDrink, Container, DrinkName } from './styles';
 
 const DrincksList = ({ navigation }) => {
   const { drinks } = useSelector((state) => state.Drinks);
+
+  console.log('retorno do reduce');
+  console.log(drinks);
+  if (drinks === null) {
+    return (
+      <Container>
+        <Text>Nenhuma Bebida encontrada.</Text>
+      </Container>
+    );
+  }
 
   function handleSelectedDrink(idDrink) {
     console.log(idDrink);

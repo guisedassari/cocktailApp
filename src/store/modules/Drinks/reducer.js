@@ -1,6 +1,4 @@
 const Drinks = (state = [], action) => {
-  console.log('reducer');
-  console.log(action.payload);
   switch (action.type) {
     case 'ADD_DRINKS_SUCCESS': {
       const { drinks } = action.payload;
@@ -9,7 +7,13 @@ const Drinks = (state = [], action) => {
         drinks,
       };
     }
-
+    case 'ADD_DRINKS_FAILURE': {
+      const { drinks } = action.payload;
+      return {
+        ...state,
+        drinks,
+      };
+    }
     default:
       return state;
   }

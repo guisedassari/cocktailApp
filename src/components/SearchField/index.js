@@ -1,14 +1,20 @@
 import React, { useState } from 'react';
 import { View } from 'react-native';
 
+import { useDispatch } from 'react-redux';
+import { searchDrinkRequest } from '../../store/modules/Drinks/action';
+
 import { Container, SearchInput, SearchIcon, SearchButton } from './styles';
 
-const SearchField = () => {
+const SearchField = ({ navigation }) => {
   const [searchText, setSearchText] = useState(null);
+  const dispatch = useDispatch();
 
   const handleSearch = () => {
     console.log('Fui clicado');
     console.log(searchText);
+    dispatch(searchDrinkRequest(searchText));
+    navigation.navigate('DrinksList');
   };
   return (
     <Container>

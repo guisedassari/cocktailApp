@@ -24,3 +24,12 @@ export function addDrinksFailure(drinks) {
     },
   };
 }
+
+export function searchDrinkRequest(drink) {
+  return {
+    type: 'SEARCH_DRINK_REQUEST',
+    payload: {
+      drink,
+    },
+  };
+}
