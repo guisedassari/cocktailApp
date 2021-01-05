@@ -13,12 +13,10 @@ export const PhotoDrink = styled.Image`
   height: 60px;
   margin-right: 15px;
   margin-left: 15px;
-  border-color: '#fff';
-  border: 1px;
   border-radius: 50px;
 `;
 
 export const DrinkName = styled.Text`
-  font-size: 16;
+  font-size: 16px;
   color: #666;
 `;

@@ -9,11 +9,7 @@ import DrinkDetails from '../screens/DrinkDetails';
 const AppStack = createStackNavigator();
 
 const AppRoutes = () => {
-  const { drinks } = useSelector((state) => state.Drinks);
-  let size = 0;
-  if (drinks !== undefined && drinks !== null) {
-    size = Object.keys(drinks).length;
-  }
+  const size = useSelector((state) => state.Drinks.length);
 
   return (
     <AppStack.Navigator initialRouteName="Categories">

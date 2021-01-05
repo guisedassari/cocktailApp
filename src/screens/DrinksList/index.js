@@ -6,11 +6,12 @@ import { Container } from './styles';
 import List from '../../components/List';
 
 const DrincksList = ({ navigation }) => {
-  const { drinks } = useSelector((state) => state.Drinks);
+  const drinks = useSelector((state) => state.Drinks);
 
-  console.log('retorno do reduce');
-  console.log(drinks);
-  if (drinks === null) {
+  console.log('Lista do reducer drinks');
+  console.log(drinks.length);
+
+  if (drinks.length === 0) {
     return (
       <Container>
         <Text>Nenhuma Bebida encontrada.</Text>

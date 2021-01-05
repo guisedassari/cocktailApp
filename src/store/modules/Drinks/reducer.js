@@ -1,18 +1,14 @@
-const Drinks = (state = [], action) => {
+const INITIAL_STATE = [];
+
+const Drinks = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case 'ADD_DRINKS_SUCCESS': {
       const { drinks } = action.payload;
-      return {
-        ...state,
-        drinks,
-      };
+      return drinks;
     }
     case 'ADD_DRINKS_FAILURE': {
-      const { drinks } = action.payload;
-      return {
-        ...state,
-        drinks,
-      };
+      console.log('cai aqui');
+      return INITIAL_STATE;
     }
     default:
       return state;
