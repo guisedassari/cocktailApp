@@ -1,8 +1,9 @@
 import React from 'react';
-import { FlatList, Text } from 'react-native';
+import { Text } from 'react-native';
 import { useSelector } from 'react-redux';
 
-import { List, PhotoDrink, Container, DrinkName } from './styles';
+import { Container } from './styles';
+import List from '../../components/List';
 
 const DrincksList = ({ navigation }) => {
   const { drinks } = useSelector((state) => state.Drinks);
@@ -17,30 +18,9 @@ const DrincksList = ({ navigation }) => {
     );
   }
 
-  function handleSelectedDrink(idDrink) {
-    console.log(idDrink);
-    navigation.navigate('DrinkDetails', {
-      idDrink: idDrink,
-    });
-  }
   return (
     <Container>
-      <FlatList
-        data={drinks}
-        keyExtractor={(drink) => drink.idDrink}
-        renderItem={({ item: drink }) => {
-          return (
-            <List onPress={() => handleSelectedDrink(drink.idDrink)}>
-              <PhotoDrink
-                source={{
-                  uri: `${drink.strDrinkThumb}/preview`,
-                }}
-              />
-              <DrinkName>{drink.strDrink}</DrinkName>
-            </List>
-          );
-        }}
-      />
+      <List drinks={drinks} navigation={navigation} />
     </Container>
   );
 };
